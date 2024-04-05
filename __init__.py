@@ -64,7 +64,7 @@ def File(name, mode='a', chunk_cache_mem_size=1024**2, w0=0.75, n_cache_chunks=N
     if 'dtype' in kwds:
         bytes_per_object = np.dtype(kwds['dtype']).itemsize
     else:
-        bytes_per_object = np.dtype(np.float).itemsize  # assume float as most likely
+        bytes_per_object = np.dtype(float).itemsize  # assume float as most likely
     if not n_cache_chunks:
         n_cache_chunks = int(np.ceil(np.sqrt(chunk_cache_mem_size / bytes_per_object)))
     nslots = _find_next_prime(100 * n_cache_chunks)
